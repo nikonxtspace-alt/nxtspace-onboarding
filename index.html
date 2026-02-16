@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXTSpace – Onboarding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="logo">NXT<span class="accent">Space</span></h1>
+      <p class="subtitle">Onboarding</p>
+    </header>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-steps">
+        <div class="step active" data-step="1">1</div>
+        <div class="step" data-step="2">2</div>
+        <div class="step" data-step="3">3</div>
+        <div class="step" data-step="4">4</div>
+      </div>
+    </div>
+
+    <!-- Step 1: Personal Data -->
+    <section class="form-step active" id="step1">
+      <h2>Persönliche Daten</h2>
+      <p class="step-description">Bitte gib deine Daten ein, um dich im NXTSpace zu registrieren.</p>
+      <form id="personalForm" novalidate>
+        <div class="form-group">
+          <label for="vorname">Vorname</label>
+          <input type="text" id="vorname" name="vorname" placeholder="Max" required autocomplete="given-name">
+          <span class="error-message" id="vornameError"></span>
+        </div>
+        <div class="form-group">
+          <label for="nachname">Nachname</label>
+          <input type="text" id="nachname" name="nachname" placeholder="Mustermann" required autocomplete="family-name">
+          <span class="error-message" id="nachnameError"></span>
+        </div>
+        <div class="form-group">
+          <label for="email">E-Mail-Adresse</label>
+          <input type="email" id="email" name="email" placeholder="max.mustermann@university.de" required autocomplete="email">
+          <span class="error-message" id="emailError"></span>
+        </div>
+        <div class="form-group">
+          <label for="campusId">Campus ID</label>
+          <input type="text" id="campusId" name="campusId" placeholder="z.B. 12345678" required>
+          <span class="error-message" id="campusIdError"></span>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="nextStep(1)">Weiter</button>
+      </form>
+    </section>
+
+    <!-- Step 2: Code of Conduct -->
+    <section class="form-step" id="step2">
+      <h2>Code of Conduct</h2>
+      <p class="step-description">Bitte lies unseren Code of Conduct sorgfältig durch.</p>
+      <div class="document-scroll" id="cocContainer">
+        <div class="document-content">
+          <h3>Code of Conduct – NXTSpace</h3>
+          <p>Willkommen im NXTSpace! Wir sind ein Ort für Visionäre, Macher und Entdecker. Damit wir gemeinsam die Grenzen des Machbaren verschieben können, setzen wir auf eine Kultur des Vertrauens und des gegenseitigen Respekts.</p>
+
+          <h4>1. Unsere Grundwerte</h4>
+          <p>Wir glauben daran, dass Innovation dort entsteht, wo Vielfalt auf Offenheit trifft.</p>
+          <p><strong>Seid respektvoll:</strong> Behandelt andere so, wie ihr selbst behandelt werden möchtet.</p>
+          <p><strong>Seid inklusiv:</strong> Diskriminierung aufgrund von Herkunft, Geschlecht, Identität, Religion oder Background hat bei uns keinen Platz.</p>
+          <p><strong>Seid hilfsbereit:</strong> Wissen wächst, wenn man es teilt. Unterstützt euch gegenseitig bei Projekten.</p>
+
+          <h4>2. Geistiges Eigentum (IP-Rechte)</h4>
+          <p>Innovation erfordert Sicherheit für die eigenen Ideen.</p>
+          <p><strong>Eigentum der Urheber:</strong> Alle Rechte am geistigen Eigentum (Intellectual Property), die im Rahmen von Projekten im NXTSpace entstehen, verbleiben vollumfänglich bei den jeweiligen Studierenden bzw. Erfindern.</p>
+
+          <h4>3. Zusammenarbeit &amp; Community</h4>
+          <p>Der NXTSpace lebt von der Interaktion.</p>
+          <p><strong>Keep it clean:</strong> Hinterlasse deinen Arbeitsplatz oder die Werkstatt so, wie du sie vorfinden möchtest.</p>
+          <p><strong>Ruhezonen achten:</strong> Respektiere Fokus-Zeiten und markierte Ruhebereiche.</p>
+          <p><strong>Feedback-Kultur:</strong> Konstruktive Kritik ist willkommen – destruktives Verhalten nicht.</p>
+
+          <h4>4. Umgang mit Equipment</h4>
+          <p>Technik ist das Herzstück des NXTSpace.</p>
+          <p><strong>Sicherheit zuerst:</strong> Nutze Maschinen und Tools nur, wenn du eingewiesen wurdest.</p>
+          <p><strong>Transparenz:</strong> Wenn etwas kaputt geht (was passieren kann!), melde es sofort. Nur so können wir es für alle reparieren.</p>
+
+          <h4>5. Unakzeptables Verhalten</h4>
+          <p>Wir tolerieren kein Verhalten, das die Sicherheit oder das Wohlbefinden unserer Mitglieder gefährdet. Dazu gehören:</p>
+          <ul>
+            <li>Belästigung jeglicher Art.</li>
+            <li>Einschüchterung oder Stalking.</li>
+            <li>Diebstahl oder mutwillige Sachbeschädigung.</li>
+            <li>Unerwünschte Foto- oder Videoaufnahmen von Mitgliedern ohne deren Zustimmung.</li>
+          </ul>
+
+          <h4>6. Konsequenzen</h4>
+          <p>Verstöße gegen diesen Code of Conduct können zu Verwarnungen, dem Ausschluss von Events führen. Wir behalten uns vor, bei schweren Verstößen sofortiges Hausverbot zu erteilen.</p>
+
+          <h4>7. Ansprechpartner</h4>
+          <p>Wenn du dich unwohl fühlst, Zeuge eines Vorfalls wirst oder Fragen hast, wende dich bitte vertrauensvoll an das NXTSpace-Team oder schreibe uns eine E-Mail an: hello@nxtspace.de</p>
+        </div>
+      </div>
+      <div class="checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="cocAccept">
+          <span class="checkmark"></span>
+          <span>Ich habe den Code of Conduct gelesen und stimme ihm zu.</span>
+        </label>
+        <span class="error-message" id="cocError"></span>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Zurück</button>
+        <button type="button" class="btn btn-primary" onclick="nextStep(2)">Weiter</button>
+      </div>
+    </section>
+
+    <!-- Step 3: Privacy Policy -->
+    <section class="form-step" id="step3">
+      <h2>Datenschutzbestimmungen</h2>
+      <p class="step-description">Bitte lies unsere Datenschutzbestimmungen sorgfältig durch.</p>
+      <div class="document-scroll" id="privacyContainer">
+        <div class="document-content">
+          <h3>Datenschutzbestimmungen – NXTSpace</h3>
+
+          <h4>1. Verantwortlicher</h4>
+          <p>Verantwortlich für die Datenverarbeitung ist der NXTSpace, erreichbar unter hello@nxtspace.de.</p>
+
+          <h4>2. Erhobene Daten</h4>
+          <p>Im Rahmen der Registrierung erheben wir folgende personenbezogene Daten:</p>
+          <ul>
+            <li>Vorname und Nachname</li>
+            <li>E-Mail-Adresse</li>
+            <li>Campus ID</li>
+          </ul>
+
+          <h4>3. Zweck der Datenverarbeitung</h4>
+          <p>Die erhobenen Daten werden ausschließlich für die Verwaltung der Mitgliedschaft im NXTSpace, die Kommunikation mit den Mitgliedern sowie die Gewährleistung der Sicherheit im NXTSpace verwendet.</p>
+
+          <h4>4. Rechtsgrundlage</h4>
+          <p>Die Verarbeitung erfolgt auf Grundlage deiner Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.</p>
+
+          <h4>5. Speicherdauer</h4>
+          <p>Deine Daten werden für die Dauer deiner Mitgliedschaft gespeichert und nach Beendigung innerhalb von 30 Tagen gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+
+          <h4>6. Deine Rechte</h4>
+          <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Wende dich dazu an hello@nxtspace.de.</p>
+
+          <h4>7. Widerruf der Einwilligung</h4>
+          <p>Du kannst deine Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem du uns eine E-Mail an hello@nxtspace.de sendest.</p>
+
+          <p><em>[Platzhalter – Bitte durch eure vollständigen Datenschutzbestimmungen ersetzen.]</em></p>
+        </div>
+      </div>
+      <div class="checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="privacyAccept">
+          <span class="checkmark"></span>
+          <span>Ich habe die Datenschutzbestimmungen gelesen und stimme der Verarbeitung meiner Daten zu.</span>
+        </label>
+        <span class="error-message" id="privacyError"></span>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary" onclick="prevStep(3)">Zurück</button>
+        <button type="button" class="btn btn-primary" onclick="nextStep(3)">Registrieren</button>
+      </div>
+    </section>
+
+    <!-- Step 4: Success -->
+    <section class="form-step" id="step4">
+      <div class="success-container">
+        <div class="success-icon">&#10003;</div>
+        <h2>Willkommen im NXTSpace!</h2>
+        <p>Deine Registrierung war erfolgreich. Du bist jetzt Teil unserer Community.</p>
+        <p class="success-detail">Eine Bestätigung wurde an <strong id="confirmEmail"></strong> gesendet.</p>
+        <button type="button" class="btn btn-primary" onclick="resetForm()">Neue Registrierung</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 NXTSpace. Alle Rechte vorbehalten.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
