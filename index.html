@@ -55,6 +55,11 @@
           <input type="text" id="campusId" name="campusId" placeholder="z.B. 12345678" required>
           <span class="error-message" id="campusIdError"></span>
         </div>
+        <!-- Honeypot: unsichtbar für echte Nutzer, Bots füllen es aus -->
+        <div class="form-group" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <button type="button" class="btn btn-primary" onclick="nextStep(1)">Weiter</button>
       </form>
     </section>
