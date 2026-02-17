@@ -232,23 +232,24 @@ async function submitProject() {
     };
 
     if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
-      // Demo-Modus
       console.log('Demo-Modus: Projektdaten:', data);
       await new Promise(resolve => setTimeout(resolve, 1000));
-    } else {
-      // Google Apps Script macht einen 302 Redirect bei POST.
-      // redirect: 'follow' + mode: 'no-cors' verhindert CORS-Fehler.
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify(data),
-        redirect: 'follow'
-      });
-
-      // Bei no-cors ist die Response "opaque" – wir können den Body nicht lesen.
-      // Daher nehmen wir bei keinem Netzwerkfehler Erfolg an.
+      document.getElementById('confirmProjekt').textContent = data.projektTitel;
+      currentStep = 3;
+      showStep(3);
+      showToast('Projekt erfolgreich eingereicht!', 'success');
+      return;
     }
+
+    // Google Apps Script: no-cors + text/plain verhindert CORS-Fehler
+    // (gleicher Ansatz wie bei der Registrierung)
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(data),
+      redirect: 'follow'
+    });
 
     // Erfolg
     document.getElementById('confirmProjekt').textContent = data.projektTitel;
